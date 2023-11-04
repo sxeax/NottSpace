@@ -216,13 +216,14 @@ body {
 /* Start convo styles */
 
 .start-convo {
+    position: relative;
     border: 5px solid #60a5fa;
     height: 60px;
     width: 130px;
     text-align: center;
     background-color: #dbeafe;
-    margin-left: -400px;
-    margin-top: 400px;
+    margin-top: 20px;
+    margin-left: 130px;
 }
 
 
