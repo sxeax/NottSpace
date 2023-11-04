@@ -106,14 +106,13 @@ body {
     justify-content: space-between;
     align-items: flex-start;
     background-color: white;
-    width: 900px;
     margin: 0 auto;
     padding: 20px;
     box-sizing: border-box;
 }
 
 .left-container, .right-container {
-    width: calc(45% - 10px); /* Adjust width as needed */
+    width: calc(50px - 10px); /* Adjust width as needed */
 }
 
 /* People section styles */
