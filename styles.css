@@ -1,0 +1,46 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+#navbar {
+    background: #124191; /* MySpace classic blue */
+    background: linear-gradient(to bottom, #2e77bc, #124191); /* Gradient effect */
+    overflow: hidden;
+}
+
+#navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#navbar li {
+    float: left; /* Align the links horizontally */
+}
+
+#navbar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px; /* Vertical and horizontal padding */
+    text-decoration: none;
+    font-size: 1.1em;
+    border-right: 1px solid #0f3560; /* Separator between links */
+}
+
+#navbar li:last-child a {
+    border-right: none; /* No border for the last item */
+}
+
+#navbar li a:hover {
+    background-color: #1f5a9d; /* Hover effect */
+    color: #ffffff;
+}
+
+/* Responsive navigation bar */
+@media screen and (max-width: 600px) {
+    #navbar li {
+        float: none; /* Stack links vertically on small screens */
+    }
+}
