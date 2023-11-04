@@ -2,7 +2,10 @@
 name = "nott_space"
 version = "0.0.1"
 requires-python = ">=3.11"
-dependencies = ["fastapi", "uvicorn", "gunicorn"]
+dependencies = ["fastapi", "uvicorn", "gunicorn", "firebase-admin", "python-dotenv"]
+
+[tool.setuptools]
+packages = ["app"]
 
 [project.optional-dependencies]
 dev = ["ruff", "black"]
