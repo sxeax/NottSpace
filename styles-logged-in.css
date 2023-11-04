@@ -112,6 +112,121 @@ body {
     color: black; /* Adjust the text color as needed */
 }
 
+/* Profile div styles */
+
+.user-profile h3 {
+    margin: 0 0 0 0;
+    color: black; /* Adjust the color to match the heading text */
+    background-color: #60a5fa;
+    text-align: left;
+    padding: 10px;
+}
+
+.profile-section {
+    display: flex;
+    width: 380px;
+    justify-content: space-around;
+    background-color: #dbeafe;
+    padding: 10px;
+    border: 3px solid #60a5fa; /* Adjust color/size as needed */
+}
+
+.profilepic img {
+    width: 200px; /* Adjust the size as needed */
+    height: 200px; /* Adjust the size as needed */
+    object-fit: cover; /* Ensures the images cover the area without distortion */
+}
+
+.profilelinks1 {
+    margin-left: 20px;
+    line-height: 30px;
+}
+
+.profilelinks2 {
+    margin-top: 215px;
+    margin-left: -290px;
+    line-height: 30px;
+}
+
+/* People section styles */
+
+.friends-section {
+    text-align: center;
+    background-color: white; /* Adjust the color to match the section background */
+    border: 1px solid #fcb; /* Adjust the color to match the border */
+    width: 600px;
+
+}
+
+.friends-section h2 {
+    margin: 0 0 0 0;
+    color: black; /* Adjust the color to match the heading text */
+    background-color: #f9c56c;
+    text-align: left;
+    padding: 10px;;
+}
+
+.friends-grid {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+.friend {
+    text-align: center;
+}
+
+.friend img {
+    border: 3px solid grey; /* Adjust color/size as needed */
+    border-radius: 10px; /* Gives the rounded corners to the images */
+    width: 120px; /* Adjust the size as needed */
+    height: 120px; /* Adjust the size as needed */
+    object-fit: cover; /* Ensures the images cover the area without distortion */
+}
+
+.friend p {
+    margin-top: 5px; /* Spacing between image and text */
+    font-size: 0.9em; /* Adjust the font size as needed */
+    color: black; /* Adjust the text color as needed */
+}
+
+/* Join info div styles */
+
+.join-info h3 {
+    margin: 0 0 0 0;
+    color: black; /* Adjust the color to match the heading text */
+    background-color: #60a5fa;
+    text-align: center;
+    padding: 10px;
+    width: 190px;
+}
+
+.join-info-sec { 
+    background-color: #dbeafe;
+    padding: 10px;
+    border: 3px solid #60a5fa; /* Adjust color/size as needed */
+    width: 185px;
+}
+
+.inner-info {
+    margin-left: 0px;
+    text-align: center;
+}
+
+/* Start convo styles */
+
+.start-convo {
+    position: relative;
+    border: 5px solid #60a5fa;
+    height: 60px;
+    width: 130px;
+    text-align: center;
+    background-color: #dbeafe;
+    margin-top: 20px;
+    margin-left: 130px;
+}
+
+
 /* Footer styles */
 
 .site-footer {
@@ -186,15 +301,4 @@ body {
     content: "";
     display: block;
     clear: both;
-}
-
-
-/* SignUp/Login */
-
-.signup {
-    border: 1px solid #1D4ED8;
-    padding: 10px;
-    text-align: center;
-    display: inline-block;
-    margin: 0 auto;
 }

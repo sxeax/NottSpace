@@ -2,7 +2,16 @@
 name = "nott_space"
 version = "0.0.1"
 requires-python = ">=3.11"
-dependencies = ["fastapi", "uvicorn", "gunicorn", "firebase-admin", "python-dotenv", "websockets"]
+dependencies = [
+  "fastapi",
+  "uvicorn",
+  "gunicorn",
+  "firebase-admin",
+  "python-dotenv",
+  "pugsql",
+  "websockets",
+]
+
 
 [tool.setuptools]
 packages = ["app"]

@@ -1,11 +1,9 @@
 from fastapi import APIRouter, Request, WebSocket, WebSocketDisconnect
-
 from starlette import status
 from starlette.authentication import requires
-
 from pydantic import BaseModel
-
 from app.core.chat import ConnectionManager
+from app.db import queries
 
 
 router = APIRouter(tags=["Core Endpoints"])
@@ -29,10 +27,10 @@ class Feed(BaseModel):
 async def healthcheck(request: Request) -> dict:
     return {"version": request.app.version}
 
-@router.post("/signup", response_model=User)
+@router.post("/signup", status_code=200)
 async def signup(user: UserCreate):
-    print(user.firebase_uid)
-    return User(id=1, display_name="Omar")
+    user = queries.create_user(firebase_uid=user.firebase_uid)
+    return {}
 
 @router.get("/feed", response_model=Feed)
 @requires('authenticated')
