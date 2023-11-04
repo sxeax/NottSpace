@@ -4,6 +4,44 @@ body {
     background-color: #e3e3e3
 }
 
+
+/* Footer styles */
+
+.site-footer {
+    background-color: #e3e3e3; /* Light grey background, adjust the color as needed */
+    color: #333; /* Dark text color, adjust as needed */
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid #eaeaea; /* Top border line, adjust color as needed */
+}
+
+.site-footer .disclaimer {
+    font-size: 0.8em; /* Smaller font size for the disclaimer */
+    margin-bottom: 20px;
+}
+
+.site-footer .footer-nav a {
+    color: #333; /* Dark link color, adjust as needed */
+    text-decoration: none;
+    margin: 0 10px; /* Space out the links */
+    font-size: 0.9em;
+}
+
+.site-footer .footer-nav a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+.site-footer .copyright {
+    font-size: 0.8em; /* Smaller font size for the copyright text */
+    margin-top: 20px;
+}
+
+.navbar, .main-links, .main-content {
+    width: 900px; /* Set the same width for all main containers */
+    margin: 0 auto; /* Center all containers */
+    box-sizing: border-box; /* Include padding and borders in the width */
+}
+
 /* Header styles */
 
 .navbar {
@@ -14,6 +52,7 @@ body {
     justify-content: space-between;
     align-items: center;
     height: 50px;
+    margin: 0 auto;
 }
 
 .logo img {
@@ -45,8 +84,9 @@ body {
 .main-links {
     background-color: #5fa4fa;
     overflow: hidden;
-    padding:7px 0;
+    padding:7px;
     text-align: center;
+    margin: 0 auto;
 }
 
 .main-links a {
@@ -64,10 +104,16 @@ body {
 .main-content {
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
     background-color: white;
+    width: 900px;
+    margin: 0 auto;
     padding: 20px;
-    padding-bottom: 20px;
+    box-sizing: border-box;
+}
 
+.left-container, .right-container {
+    width: calc(45% - 10px); /* Adjust width as needed */
 }
 
 /* People section styles */
@@ -76,7 +122,7 @@ body {
     text-align: center;
     background-color: white; /* Adjust the color to match the section background */
     border: 1px solid #fcb; /* Adjust the color to match the border */
-    width: 600px;
+    width: 550px;
 
 }
 
@@ -112,53 +158,31 @@ body {
     color: black; /* Adjust the text color as needed */
 }
 
-/* Footer styles */
-
-.site-footer {
-    background-color: #e3e3e3; /* Light grey background, adjust the color as needed */
-    color: #333; /* Dark text color, adjust as needed */
-    padding: 20px;
-    text-align: center;
-    border-top: 1px solid #eaeaea; /* Top border line, adjust color as needed */
-}
-
-.site-footer .disclaimer {
-    font-size: 0.8em; /* Smaller font size for the disclaimer */
-    margin-bottom: 20px;
-}
-
-.site-footer .footer-nav a {
-    color: #333; /* Dark link color, adjust as needed */
-    text-decoration: none;
-    margin: 0 10px; /* Space out the links */
-    font-size: 0.9em;
-}
-
-.site-footer .footer-nav a:hover {
-    text-decoration: underline; /* Underline on hover */
-}
-
-.site-footer .copyright {
-    font-size: 0.8em; /* Smaller font size for the copyright text */
-    margin-top: 20px;
-}
-
 /* Music and Announcements section styles */
 
-.container {
-    width: 90%;
-    max-width: 600px; /* Adjust the width as needed */
+.right-container {
+    width: 300px; /* Adjust the width as needed */
+    margin-left: auto;
 }
 
 .section {
-    background-color: #000000; /* Light blue background */
+    background-color: #ffffff; /* Light blue background */
     margin-bottom: 0px; /* Space between sections */
     padding: 10px;
 }
 
+.section .announcements {
+    color: red;
+    padding: 30px;
+}
+
 .section h2 {
-    color: #333;
-    font-size: 1.2em;
+    background-color: #5fa4fa;
+    color: white;
+    padding: 5px;
+    margin-top: 0; /* Reset any default margins */
+    font-size: 20px;
+    align-items: flex-start;
 }
 
 .more-link,
@@ -166,6 +190,7 @@ body {
 .shop-link {
     color: #0066cc; /* Adjust color as needed */
     text-decoration: none;
+
 }
 
 .section img {
@@ -177,16 +202,50 @@ body {
     border: 1px solid #999; /* Image border */
 }
 
-.section .content {
-    overflow: hidden; /* Clear the float */
+/* Donation section styles */
+
+.donation-section {
+    background-color: #E0E7FF;
+    text-align: center;
+    padding: 10px;
+    width: auto;
+    height: 150px;
 }
 
-/* Clearfix for floated images */
-.section::after {
-    content: "";
-    display: block;
-    clear: both;
+.donation-section h2 {
+    color: black;
+    margin: 0;
+    font-size: 25px;
 }
+
+
+/* SignUp/Login */
+
+.signup {
+    border: 1px solid #1D4ED8;
+    padding: 10px;
+    text-align: center;
+    display: inline-block;
+    margin: 0 auto;
+}
+.donation-section button {
+    background-color: #10B981;
+    margin-top: 10px;
+}
+
+.donation-section button:hover {
+    background-color: #059669;
+}
+
+.payment-logos img {
+    padding-top: 10px;
+    height: 20px; /* or the size that fits your design */
+    width: auto;
+    vertical-align: middle; /* Aligns logos with the text if needed */
+}
+
+
+
 
 
 /* SignUp/Login */
