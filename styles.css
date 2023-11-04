@@ -1,46 +1,107 @@
 body {
-    margin: 0;
+    margin: 0 100px;
     font-family: Arial, sans-serif;
+    background-color: #e3e3e3
 }
 
-#navbar {
-    background: #124191; /* MySpace classic blue */
-    background: linear-gradient(to bottom, #2e77bc, #124191); /* Gradient effect */
-    overflow: hidden;
-}
-
-#navbar ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-#navbar li {
-    float: left; /* Align the links horizontally */
-}
-
-#navbar li a {
-    display: block;
+.navbar {
+    background: #1D4ED8; /* Blue gradient background */
     color: white;
-    text-align: center;
-    padding: 14px 16px; /* Vertical and horizontal padding */
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+}
+
+.logo img {
+    height: 30px;
+    width: auto;
+}
+
+.logo a {
+    color: white;
     text-decoration: none;
-    font-size: 1.1em;
-    border-right: 1px solid #0f3560; /* Separator between links */
+    font-size: 24px;
+    font-weight: bold;
 }
 
-#navbar li:last-child a {
-    border-right: none; /* No border for the last item */
+.search-bar input[type="text"] {
+    padding: 5px;
 }
 
-#navbar li a:hover {
-    background-color: #1f5a9d; /* Hover effect */
-    color: #ffffff;
+.search-bar button {
+    padding: 5px;
 }
 
-/* Responsive navigation bar */
-@media screen and (max-width: 600px) {
-    #navbar li {
-        float: none; /* Stack links vertically on small screens */
-    }
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+.main-links {
+    background-color: #5fa4fa;
+    overflow: hidden;
+    padding:7px 0;
+    text-align: center;
+}
+
+.main-links a {
+    color: white;
+    text-decoration: none;
+    padding: 0 10px;
+}
+
+.main-links a:hover {
+    text-decoration: underline;
+}
+
+.main-content {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    padding: 20px;
+    padding-bottom: 20px;
+
+}
+
+.people-section {
+    text-align: center;
+    background-color: white; /* Adjust the color to match the section background */
+    border: 1px solid #fcb; /* Adjust the color to match the border */
+    width: 600px;
+
+}
+
+.people-section h2 {
+    margin: 0 0 0 0;
+    color: black; /* Adjust the color to match the heading text */
+    background-color: #f9c56c;
+    text-align: left;
+    padding: 10px;;
+}
+
+.people-grid {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+.person {
+    text-align: center;
+}
+
+.person img {
+    border: 3px solid grey; /* Adjust color/size as needed */
+    border-radius: 10px; /* Gives the rounded corners to the images */
+    width: 120px; /* Adjust the size as needed */
+    height: 120px; /* Adjust the size as needed */
+    object-fit: cover; /* Ensures the images cover the area without distortion */
+}
+
+.person p {
+    margin-top: 5px; /* Spacing between image and text */
+    font-size: 0.9em; /* Adjust the font size as needed */
+    color: black; /* Adjust the text color as needed */
 }
