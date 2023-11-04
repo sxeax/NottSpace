@@ -18,7 +18,7 @@ app = firebase_admin.initialize_app(cred)
 class AuthBackend(AuthenticationBackend):
     async def authenticate(self, conn):
         if "Authorization" not in conn.headers:
-            raise AuthenticationError("Authorization token is missing")
+            return
 
         id_token = conn.headers["Authorization"]
         try:
