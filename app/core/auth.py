@@ -24,8 +24,8 @@ class AuthBackend(AuthenticationBackend):
                 return
             id_token = conn.headers["Authorization"]
         try:
-            decoded_token = auth.verify_id_token(id_token)
-            return AuthCredentials(["authenticated"]), decoded_token
+            user = auth.verify_id_token(id_token)
+            return AuthCredentials(["authenticated"]), user['uid']
         except Exception:
             raise AuthenticationError("Invalid authorization token")
 

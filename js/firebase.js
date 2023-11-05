@@ -5,8 +5,11 @@ import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signOut,
+  getIdToken,
 } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js";
-import { createAccount } from "./api.js";
+import { createAccount, getFriendCount } from "./api.js";
+
+export let userToken = null;
 
 const firebaseConfig = {
   apiKey: "AIzaSyAb2tCj_qrHc9nDDUxeBAI52vWHFtxbrv4",
@@ -29,7 +32,7 @@ export function login(event) {
   signInWithEmailAndPassword(auth, email, password)
     .then(function (userCredential) {
       const user = userCredential.user;
-      document.location.href = "/index-logged-in.html";
+      document.location.href =  '/index-logged-in.html';
       loginStatus.textContent = `Logged in as ${user.email}`;
     })
     .catch(function (error) {
@@ -63,3 +66,10 @@ export function logout() {
   signOut(auth);
 }
 
+onAuthStateChanged(auth, async (user) => {
+  if (user) {
+    user.getIdToken().then(token => userToken = token)
+  } else {
+    userToken = null;
+  }
+});
