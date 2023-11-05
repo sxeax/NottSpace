@@ -48,7 +48,7 @@
     <!-- PROFILE -->
 
     <div class="user-profile">
-        <h3>Hello, $getuser!</h3>
+      <h3>Hello, <span id="loggedInName">User</span></h3>
         <div class="profile-section">
             <div class="profilepic">
                 <img src="images/people/arthur.png">
@@ -127,7 +127,7 @@
             </div>
             <div class="inner-info">
                 Joined:<br>
-                <p>$getuserjoindate</p>
+                <p id="joineddate"></p>
             </div>
         </div>
     </div>
@@ -178,6 +178,8 @@
     function updateData() {
         getUserData().then((response) => {
             document.getElementById('friendcount').textContent = response.no_friends
+            document.getElementById('loggedInName').textContent = response.display_name
+            document.getElementById('joineddate').textContent = response.created_at
         })
     }
 

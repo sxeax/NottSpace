@@ -11,6 +11,7 @@ manager = ConnectionManager()
 
 class UserCreate(BaseModel):
     firebase_uid: str
+    display_name: str
 
 class User(BaseModel):
     id: int
@@ -29,7 +30,10 @@ async def healthcheck(request: Request) -> dict:
 
 @router.post("/signup", status_code=200)
 async def signup(user: UserCreate):
-    user = queries.create_user(firebase_uid=user.firebase_uid)
+    user = queries.create_user(
+        firebase_uid=user.firebase_uid,
+        display_name=user.display_name
+    )
     return {}
 
 @router.get('/friend_count')
@@ -48,13 +52,13 @@ x = 2
 @router.get('/get_data')
 @requires('authenticated')
 async def get_data(request: Request):
-    global x
-    print('i am called')
-    print(request)
-    x += 1
-    user_id = queries.get_user(firebase_uid=request.user)
-    friends = list(queries.get_friends(user_id=user_id['user_id']))
-    return {'no_friends': len(friends)}
+    user = queries.get_user(firebase_uid=request.user)
+    friends = list(queries.get_friends(user_id=user['user_id']))
+    return {
+        'no_friends': len(friends),
+        'display_name': user['display_name'],
+        'created_at': user['created_at'],
+    }
 
 @router.websocket('/chat/{user_id}')
 @requires('authenticated')
@@ -68,4 +72,4 @@ async def chat_socket(websocket: WebSocket, user_id: str):
     except WebSocketDisconnect:
         manager.disconnect(websocket)
         await manager.broadcast(f"Client #{user_id} left the chat")
-                            
+

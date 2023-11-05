@@ -10,13 +10,13 @@ async function authenticatedFetch(url, token, options = {}) {
     return fetch(url, options).then((response) => response.json());
 }
 
-export async function createAccount(firebaseUid) {
+export async function createAccount(firebaseUid, displayName) {
   return fetch(`${URL}/signup`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ firebase_uid: firebaseUid }),
+    body: JSON.stringify({ firebase_uid: firebaseUid, display_name: displayName }),
   });
 }
 

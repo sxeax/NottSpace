@@ -1,2 +1,2 @@
 -- :name create_user :insert
-insert into user (firebase_uid) values (:firebase_uid)
+insert into user (display_name, firebase_uid) values (:display_name, :firebase_uid)

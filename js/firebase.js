@@ -44,6 +44,7 @@ export function login(event) {
 
 export function signup(event) {
   event.preventDefault();
+  const displayName = document.getElementById("displayName").value;
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
   const signupStatus = document.getElementById("signup-status");
@@ -51,7 +52,7 @@ export function signup(event) {
   createUserWithEmailAndPassword(auth, email, password)
     .then(function (userCredential) {
       const user = userCredential.user;
-      createAccount(userCredential.user.uid).then(() => {
+      createAccount(userCredential.user.uid, displayName).then(() => {
         document.location.href = "/index-logged-in.html";
       });
       signupStatus.textContent = `Sign-up successful for ${user.email}`;
