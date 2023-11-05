@@ -8,8 +8,10 @@ dependencies = [
   "gunicorn",
   "firebase-admin",
   "python-dotenv",
-  "pugsql"
+  "pugsql",
+  "websockets",
 ]
+
 
 [tool.setuptools]
 packages = ["app"]

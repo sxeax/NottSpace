@@ -17,16 +17,24 @@ app = firebase_admin.initialize_app(cred)
 
 class AuthBackend(AuthenticationBackend):
     async def authenticate(self, conn):
-        if "Authorization" not in conn.headers:
-            return
-
-        id_token = conn.headers["Authorization"]
+        if conn.scope['type'] == 'websocket':
+            id_token = self._authenticate_websocket(conn)
+        else:
+            if "Authorization" not in conn.headers:
+                return
+            id_token = conn.headers["Authorization"]
         try:
             decoded_token = auth.verify_id_token(id_token)
             return AuthCredentials(["authenticated"]), decoded_token
         except Exception:
             raise AuthenticationError("Invalid authorization token")
 
+    def _authenticate_websocket(self, conn) -> str:
+        try:
+            return conn.query_params['Authorization']
+        except KeyError:
+            raise AuthenticationError("Missing query parameters")
+        
 def on_auth_error(request: Request, exc: Exception):
     return JSONResponse({"error": str(exc)}, status_code=401)
 

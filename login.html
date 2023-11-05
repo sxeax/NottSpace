@@ -34,7 +34,7 @@
         <a href="#">Forums</a> |
         <a href="#">Groups</a> |
         <a href="#">About</a> |
-       
+
     </div>
     <!-- NAV BAR-->
 
@@ -45,20 +45,21 @@
             <div class="signup">
                 <h3>Member LogIn</h3>
                 <form>
-                    <label for="username">Username:</label>
-                    <input type="text" id="username" name="username" required><br><br>
-            
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" placeholder="email" required><br><br>
+
                     <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" required><br><br>
-            
+                    <input type="password" id="password" name="password" placeholder="password" required><br><br>
+
                     <input type="submit" value="Login">
                 </form>
+                <p id="login-status"></p>
                 <p>Or <a href="signup.html">sign up</a></p>
             </div>
 
 
-    
-    
+
+
 </div>
 
     </div>
@@ -89,4 +90,8 @@
 
 
 </body>
+<script type="module">
+  import { login } from "./js/firebase.js";
+  document.querySelector("form").addEventListener("submit", login);
+</script>
 </html>

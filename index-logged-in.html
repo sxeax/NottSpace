@@ -21,7 +21,7 @@
         </div>
         <div class="nav-links">
             <a href="#">Help</a> |
-            <a href="index.html">LogOut</a>
+            <a id="logout-button">LogOut</a>
         </div>
     </div>
     <div class="main-links">
@@ -33,7 +33,7 @@
         <a href="#">Forums</a> |
         <a href="#">Groups</a> |
         <a href="#">About</a> |
-       
+
     </div>
     <!-- NAV BAR-->
 
@@ -41,7 +41,7 @@
     <div>
         <div class="main-content">
 
-    
+
 
 
     <!-- PROFILE -->
@@ -73,13 +73,13 @@
 
     <!-- PROFILE -->
 
-    
+
 
 
     <!-- PEOPLE -->
         <div class="friends-section">
             <h2>Your Friends</h2>
-            <!--Row One--> 
+            <!--Row One-->
             <div class="friends-grid">
                 <div class="friend">
                     <p>Arthur</p>
@@ -99,7 +99,7 @@
                     <img src="images/people/sean.png">
                 </div>
             </div>
-            <!--Row Two--> 
+            <!--Row Two-->
             <div class="friends-grid">
                 <div class="friend">
                     <p>Felix</p>
@@ -137,11 +137,18 @@
                 <p>$getuserjoindate</p>
             </div>
         </div>
-    </div> 
+    </div>
 
     <!-- JOIN INFO -->
 
 
+<!-- START CONVO -->
+
+<div class="start-convo">
+    <h3>Start a chat</h3>
+</div>
+
+<!-- START CONVO -->
 
 
 </div>
@@ -174,4 +181,12 @@
 
 
 </body>
+<script type="module">
+  import { logout } from "./js/firebase.js";
+  const logoutButton = document.getElementById("logout-button");
+  logoutButton.addEventListener("click", () => {
+    logout();
+    document.location.href = "/";
+  });
+</script>
 </html>
