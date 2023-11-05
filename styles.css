@@ -106,14 +106,13 @@ body {
     justify-content: space-between;
     align-items: flex-start;
     background-color: white;
-    width: 900px;
     margin: 0 auto;
     padding: 20px;
     box-sizing: border-box;
 }
 
 .left-container, .right-container {
-    width: calc(45% - 10px); /* Adjust width as needed */
+    width: calc(50px - 10px); /* Adjust width as needed */
 }
 
 /* People section styles */
@@ -198,7 +197,6 @@ body {
     margin-right: 10px;
     width: 100px; /* Adjust the size as needed */
     height: 100px; /* Adjust the size as needed */
-
     border: 1px solid #999; /* Image border */
 }
 
@@ -243,6 +241,83 @@ body {
     width: auto;
     vertical-align: middle; /* Aligns logos with the text if needed */
 }
+
+/* Login Box styles */
+
+.login-signup-section {
+    background-color: white; /* Light grey background */
+    border: 1px solid #ccc; /* Grey border */
+    padding: 20px;
+    margin-top: 20px; /* Space from the previous section */
+}
+
+.login-signup-section .header h2 {
+    color: #333;
+    text-align: center;
+}
+
+.login-signup-section form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-signup-section input[type="email"],
+.login-signup-section input[type="password"] {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+}
+
+.login-signup-section .checkbox-container {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.login-signup-section .buttons button {
+    padding: 10px;
+    margin-right: 5px;
+    border: none;
+    color: white;
+    background-color: #1D4ED8; /* Example color: blue */
+    cursor: pointer;
+}
+
+.login-signup-section .buttons button:last-child {
+    background-color: #34D399; /* Example color: green */
+}
+
+.login-signup-section .forgot-password {
+    display: block;
+    text-align: center;
+    color: #1D4ED8; /* Example color: blue */
+    text-decoration: none;
+    margin-top: 15px;
+}
+
+.login-signup-section .additional-info p {
+    text-align: center;
+    font-size: 0.9em;
+    color: #666;
+}
+
+.signup-button {
+    display: inline-block; /* Makes the <a> element behave like a button */
+    padding: 10px 20px; /* Button padding */
+    background-color: #1D4ED8; /* Button color */
+    color: white; /* Text color */
+    text-align: center;
+    text-decoration: none; /* Removes the underline from the link */
+    border: none; /* Removes the border */
+    border-radius: 4px; /* Optional: if you want rounded corners */
+    cursor: pointer; /* Changes the mouse cursor on hover */
+}
+
+.signup-button:hover, .signup-button:focus {
+    background-color: #2563EB; /* Darker shade for hover state */
+    outline: none; /* Removes the outline */
+}
+
 
 
 

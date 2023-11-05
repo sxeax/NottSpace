@@ -4,6 +4,22 @@ body {
     background-color: #e3e3e3
 }
 
+.navbar, .main-links, .main-content {
+    width: 900px; /* Set the same width for all main containers */
+    margin: 0 auto; /* Center all containers */
+    box-sizing: border-box; /* Include padding and borders in the width */
+}
+
+.navbar, .main-links, .user-profile, .friends-section, .join-info, .footer {
+    box-sizing: border-box; /* Padding and border included in the width */
+}
+
+.left-container, .right-container, .people-section, .donation-section, .section {
+    width: auto; /* Resets any specific width to utilize the width of their parent container */
+    max-width: 100%; /* Ensures they don't exceed the parent container's width */
+}
+
+
 /* Header styles */
 
 .navbar {
@@ -124,37 +140,47 @@ body {
 
 .profile-section {
     display: flex;
-    width: 380px;
-    justify-content: space-around;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    width: auto; /* Adjust the width as needed, or remove it to use the default */
     background-color: #dbeafe;
     padding: 10px;
-    border: 3px solid #60a5fa; /* Adjust color/size as needed */
+    border: 3px solid #60a5fa;
 }
 
 .profilepic img {
-    width: 200px; /* Adjust the size as needed */
-    height: 200px; /* Adjust the size as needed */
+    width: 150px; /* Adjust the size as needed */
+    height: 150px; /* Adjust the size as needed */
     object-fit: cover; /* Ensures the images cover the area without distortion */
+    margin-bottom: 10px; /* Adds space below the image */
+}
+
+
+.profile-info {
+    display: flex;
+    flex-direction: column; /* Stack links vertically */
 }
 
 .profilelinks1 {
-    margin-left: 20px;
-    line-height: 30px;
+    /* Style as needed, already below .profilepic due to flex-direction: column; */
+    text-align: center; /* Center the text if desired */
+    margin-bottom: 10px; /* Adds space below the links */
 }
 
 .profilelinks2 {
-    margin-top: 215px;
-    margin-left: -290px;
-    line-height: 30px;
+    /* Style as needed, will appear below .profilelinks1 */
+    text-align: center; /* Center the text if desired */
 }
 
 /* People section styles */
 
 .friends-section {
+    padding: 0px 10px;
     text-align: center;
     background-color: white; /* Adjust the color to match the section background */
-    border: 1px solid #fcb; /* Adjust the color to match the border */
-    width: 600px;
+
+    width: auto;
+    height: 300px;
 
 }
 
@@ -163,13 +189,14 @@ body {
     color: black; /* Adjust the color to match the heading text */
     background-color: #f9c56c;
     text-align: left;
-    padding: 10px;;
+    padding: 10px;
 }
 
 .friends-grid {
     display: flex;
     justify-content: space-around;
     padding: 10px;
+    height: auto;
 }
 
 .friend {
@@ -179,8 +206,8 @@ body {
 .friend img {
     border: 3px solid grey; /* Adjust color/size as needed */
     border-radius: 10px; /* Gives the rounded corners to the images */
-    width: 120px; /* Adjust the size as needed */
-    height: 120px; /* Adjust the size as needed */
+    width: 60px; /* Adjust the size as needed */
+    height: 60px; /* Adjust the size as needed */
     object-fit: cover; /* Ensures the images cover the area without distortion */
 }
 
@@ -215,15 +242,24 @@ body {
 
 /* Start convo styles */
 
-.start-convo {
-    position: relative;
+
+
+.custom-button {
+    display: inline-block;
+    background-color: #60a5fa;
+    color: black;
+    font-size: 25px;
+    text-decoration: none;
     border: 5px solid #60a5fa;
-    height: 60px;
+    cursor: pointer;
     width: 130px;
-    text-align: center;
-    background-color: #dbeafe;
+    margin-left: 105px;
     margin-top: 20px;
-    margin-left: 130px;
+}
+
+.custom-button:hover {
+    background-color: #418fef;
+    border: 5px solid #418fef;
 }
 
 

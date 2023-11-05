@@ -1,0 +1,88 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #e3e3e3
+}
+
+.top-bar {
+    height: 29px;
+    background-color: #1D4ED8;
+    width: 100%;
+}
+
+.custom-button {
+    display: inline-block;
+    background-color: #1D4ED8;
+    color: #fff;
+    font-size: 25px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    width: 250px;
+}
+
+.custom-button:hover {
+    background-color: #183da3;
+}
+
+.custom-button2 {
+    display: inline-block;
+    background-color: #1D4ED8;
+    color: #fff;
+    font-size: 25px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    width: 85px;
+    position: absolute;
+    right: 0px;
+}
+
+.custom-button2:hover {
+    background-color: #183da3;
+}
+
+.chatarea {
+    margin-top: 10px;
+    margin-left: 540px;
+    padding: 10px;
+    height: 630px;
+    width: 900px;
+    background-color: white;
+    border: 1px solid grey; /* Adjust color/size as needed */
+    border-radius: 5px; /* Gives the rounded corners to the images */
+}
+
+
+.user p {
+    position: absolute;
+    font-size: 20px;
+    margin-top: 60px;
+    margin-left: 220px;
+}
+
+.profilepic img {
+    width: 100px; /* Adjust the size as needed */
+    height: 100px; /* Adjust the size as needed */
+    object-fit: cover; /* Ensures the images cover the area without distortion */
+    margin-bottom: 10px; /* Adds space below the image */
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 100px;
+    border: 1px solid grey;
+}
+
+.selectchat {
+    height: 300px;
+    width: 400px;
+    background-color: white;
+    position: absolute;
+    margin-top: 150px;
+    margin-left: 100px;
+    border: 1px solid grey; /* Adjust color/size as needed */
+    border-radius: 5px; /* Gives the rounded corners to the images */
+}
+
+.selectchat h4 {
+    margin-left: 20px;
+}
