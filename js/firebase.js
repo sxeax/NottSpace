@@ -51,8 +51,9 @@ export function signup(event) {
   createUserWithEmailAndPassword(auth, email, password)
     .then(function (userCredential) {
       const user = userCredential.user;
-      createAccount(userCredential.user.uid);
-      document.location.href = "/index-logged-in.html";
+      createAccount(userCredential.user.uid).then(() => {
+        document.location.href = "/index-logged-in.html";
+      });
       signupStatus.textContent = `Sign-up successful for ${user.email}`;
     })
     .catch(function (error) {

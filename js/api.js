@@ -5,13 +5,13 @@ URL = "http://127.0.0.1:8000";
 async function authenticatedFetch(url, token, options = {}) {
     options.headers = {
       ...options.headers,
-      Authorization: token,  
+      Authorization: token,
     };
     return fetch(url, options).then((response) => response.json());
 }
 
-export function createAccount(firebaseUid) {
-  fetch(`${URL}/signup`, {
+export async function createAccount(firebaseUid) {
+  return fetch(`${URL}/signup`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
