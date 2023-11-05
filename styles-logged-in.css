@@ -242,15 +242,24 @@ body {
 
 /* Start convo styles */
 
-.start-convo {
-    position: relative;
+
+
+.custom-button {
+    display: inline-block;
+    background-color: #60a5fa;
+    color: black;
+    font-size: 25px;
+    text-decoration: none;
     border: 5px solid #60a5fa;
-    height: 60px;
+    cursor: pointer;
     width: 130px;
-    text-align: center;
-    background-color: #dbeafe;
+    margin-left: 105px;
     margin-top: 20px;
-    margin-left: 130px;
+}
+
+.custom-button:hover {
+    background-color: #418fef;
+    border: 5px solid #418fef;
 }
 
 
