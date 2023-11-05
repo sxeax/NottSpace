@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Chat in NottSpace</title>
+    </head>
+    <body>
+        <h1>NottSpace Chat</h1>
+        <h2>Your ID: <span id="ws-id"></span></h2>
+        <form action="" onsubmit="sendMessage(event)">
+            <input type="text" id="messageText" autocomplete="off"/>
+            <button>Send</button>
+        </form>
+        <ul id='messages'>
+        </ul>
+        <script type="module">
+            import { ws } from './js/firebase.js';
+
+            const names = ["Alice", "Bob", "Charlie", "David", "Eve", "Frank", "Grace", "Hannah", "Ivy", "Jack", "Katie", "Liam", "Mia", "Noah", "Olivia", "Parker", "Quinn", "Ryan", "Sophia", "Tyler", "Uma", "Violet", "William", "Xander", "Yasmine", "Zach"];
+
+            function getRandomName() {
+                var randomIndex = Math.floor(Math.random() * names.length);
+                return names[randomIndex];
+            }
+            
+            var user_id = getRandomName();
+            document.querySelector("#ws-id").textContent = user_id;
+
+            function sendMessage(event) {
+                event.preventDefault()
+                var input = document.getElementById("messageText")
+                ws.send(input.value)
+                input.value = ''
+            }
+        </script>
+    </body>
+</html> 

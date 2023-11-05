@@ -18,7 +18,8 @@ app = firebase_admin.initialize_app(cred)
 class AuthBackend(AuthenticationBackend):
     async def authenticate(self, conn):
         if conn.scope['type'] == 'websocket':
-            id_token = self._authenticate_websocket(conn)
+            return
+            # id_token = self._authenticate_websocket(conn)
         else:
             if "Authorization" not in conn.headers:
                 return

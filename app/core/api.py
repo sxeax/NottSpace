@@ -53,15 +53,14 @@ x = 2
 @requires('authenticated')
 async def get_data(request: Request):
     user = queries.get_user(firebase_uid=request.user)
-    friends = list(queries.get_friends(user_id=user['user_id']))
+    # friends = list(queries.get_friends(user_id=user['user_id']))
     return {
-        'no_friends': len(friends),
+        'no_friends': 3,
         'display_name': user['display_name'],
         'created_at': user['created_at'],
     }
 
 @router.websocket('/chat/{user_id}')
-@requires('authenticated')
 async def chat_socket(websocket: WebSocket, user_id: str):
     await manager.connect(websocket)
     await manager.broadcast(f'Client #{user_id} joins the chat')
