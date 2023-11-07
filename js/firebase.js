@@ -5,8 +5,11 @@ import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signOut,
+  getIdToken,
 } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js";
-import { createAccount } from "./api.js";
+import { createAccount, getFriendCount } from "./api.js";
+
+export let userToken = null;
 
 const firebaseConfig = {
   apiKey: "AIzaSyAb2tCj_qrHc9nDDUxeBAI52vWHFtxbrv4",
@@ -29,7 +32,7 @@ export function login(event) {
   signInWithEmailAndPassword(auth, email, password)
     .then(function (userCredential) {
       const user = userCredential.user;
-      document.location.href = "/index-logged-in.html";
+      document.location.href =  '/index-logged-in.html';
       loginStatus.textContent = `Logged in as ${user.email}`;
     })
     .catch(function (error) {
@@ -41,6 +44,7 @@ export function login(event) {
 
 export function signup(event) {
   event.preventDefault();
+  const displayName = document.getElementById("displayName").value;
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
   const signupStatus = document.getElementById("signup-status");
@@ -48,8 +52,9 @@ export function signup(event) {
   createUserWithEmailAndPassword(auth, email, password)
     .then(function (userCredential) {
       const user = userCredential.user;
-      createAccount(userCredential.user.uid);
-      document.location.href = "/index-logged-in.html";
+      createAccount(userCredential.user.uid, displayName).then(() => {
+        document.location.href = "/index-logged-in.html";
+      });
       signupStatus.textContent = `Sign-up successful for ${user.email}`;
     })
     .catch(function (error) {
@@ -63,3 +68,10 @@ export function logout() {
   signOut(auth);
 }
 
+onAuthStateChanged(auth, async (user) => {
+  if (user) {
+    user.getIdToken().then(token => userToken = token)
+  } else {
+    userToken = null;
+  }
+});

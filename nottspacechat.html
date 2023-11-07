@@ -27,7 +27,38 @@
             No chat selected
         </div>
     </div>
+    <h1>WebSocket Chat</h1>
+    <h2>Your ID: <span id="ws-id"></span></h2>
+    <form action="" onsubmit="sendMessage(event)">
+        <input type="text" id="messageText" autocomplete="off"/>
+        <button>Send</button>
+    </form>
+    <ul id='messages'>
+    </ul>
+    <script>
+        const names = ["Alice", "Bob", "Charlie", "David", "Eve", "Frank", "Grace", "Hannah", "Ivy", "Jack", "Katie", "Liam", "Mia", "Noah", "Olivia", "Parker", "Quinn", "Ryan", "Sophia", "Tyler", "Uma", "Violet", "William", "Xander", "Yasmine", "Zach"];
 
+        function getRandomName() {
+            var randomIndex = Math.floor(Math.random() * names.length);
+            return names[randomIndex];
+        }
 
+        var user_id = getRandomName();
+        document.querySelector("#ws-id").textContent = user_id;
+        var ws = new WebSocket(`ws://localhost:8000/chat/${user_id}?Authorization=${user_id}`);
+        ws.onmessage = function(event) {
+            var messages = document.getElementById('messages')
+            var message = document.createElement('li')
+            var content = document.createTextNode(event.data)
+            message.appendChild(content)
+            messages.appendChild(message)
+        };
+        function sendMessage(event) {
+            var input = document.getElementById("messageText")
+            ws.send(input.value)
+            input.value = ''
+            event.preventDefault()
+        }
+    </script>
 </body>
 </html>

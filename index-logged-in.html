@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NottSpace</title>
     <link rel="stylesheet" href="styles-logged-in.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <!-- NAV BAR-->
@@ -47,7 +48,7 @@
     <!-- PROFILE -->
 
     <div class="user-profile">
-        <h3>Hello, $getuser!</h3>
+      <h3>Hello, <span id="loggedInName">User</span></h3>
         <div class="profile-section">
             <div class="profilepic">
                 <img src="images/people/arthur.png">
@@ -130,11 +131,11 @@
         <div class="join-info-sec">
             <div class="inner-info">
                 Your Friends:<br>
-                <p>$getuserfriendcount</p>
+                <p id="friendcount">Count:</p>
             </div>
             <div class="inner-info">
                 Joined:<br>
-                <p>$getuserjoindate</p>
+                <p id="joineddate"></p>
             </div>
         </div>
     </div>
@@ -166,15 +167,31 @@
 
         </div>
     <!-- BOTTOM -->
+<p>hi</p>
+<span id="counter">Loading...</span>
+<script type="module">
+    import { getUserData } from './js/api.js';
+    function updateData() {
+        getUserData().then((response) => {
+            document.getElementById('friendcount').textContent = response.no_friends
+            document.getElementById('loggedInName').textContent = response.display_name
+            document.getElementById('joineddate').textContent = response.created_at
+        })
+    }
 
+    setInterval(updateData, 1600);
+    updateData();
+</script>
 
 </body>
 <script type="module">
   import { logout } from "./js/firebase.js";
+
   const logoutButton = document.getElementById("logout-button");
   logoutButton.addEventListener("click", () => {
     logout();
     document.location.href = "/";
   });
+  document.getElementById('friendcount').textContent = 'poop'
 </script>
 </html>
